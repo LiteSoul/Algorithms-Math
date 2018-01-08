@@ -10,10 +10,8 @@
 
 <body>
 
-	<h2>Sum the N first whole numbers</h2>
-
+	<h4>Sum the N first whole numbers</h4>
 	<button onclick="tryIt()">Try it</button>
-
 	<p id="logger"></p>
 
 	<script>
@@ -22,12 +20,12 @@
 		let result = 0
 
 		function tryIt() {
-			num = prompt("Please enter a whole number:", "3")
+			num = prompt('Please enter a whole number:')
 			if (num == null || num == "") {
-				txt = "User cancelled the prompt."
+				txt = 'User cancelled the prompt.'
 			} else {
 				sumNNum(num)
-				txt = "Hello " + result + "! How are you today?";
+				txt = "The sum of the first " + num + " whole numbers is " + result
 			}
 			document.getElementById("logger").innerHTML = txt;
 		}
