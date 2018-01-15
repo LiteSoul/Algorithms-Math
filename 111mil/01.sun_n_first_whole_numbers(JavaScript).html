@@ -11,55 +11,44 @@
 		.input {
 			width: 155px
 		}
+
+		h4 {
+			color: blue
+		}
 	</style>
 </head>
 
 <body>
-
-	<div class="container">
-		<br>
-		<h3 class="title is-3 is-spaced">Algorithm "Sum the N first whole numbers"</h3>
-		<br>
-		<h5 class="subtitle is-5">Add a number between zero and a million to try it:</h5>
-		<h4 class="subtitle is-4">
-			The sum of the first
-			<span>
-				<input type="number" min="0" max="999999" maxlength="6" id="cost" class="input is-info is-rounded">
-			</span>
-			whole numbers is
-			<span>
-				<input type="text" id="res" readonly class="input is-info is-rounded">
-			</span>
-		</h4>
+	<div class="section">
+		<div class="container">
+			<h3 class="title is-3 is-spaced">Algorithm "Sum the N first whole numbers"</h3>
+			<br>
+			<h5 class="subtitle is-5">Add a number between zero and a million to try it:</h5>
+			<h4 class="subtitle is-4">
+				The sum of the first
+				<span>
+					<input type="number" min="0" max="999999" maxlength="6" id="input" class="input is-medium is-rounded">
+				</span>
+				whole numbers is
+				<span>
+					<input type="text" id="result" readonly class="input is-medium is-rounded">
+				</span>
+			</h4>
+		</div>
 	</div>
 
-	<span id="here"></span>
-
 	<script>
-		const cost = document.querySelector('#cost')
-		// cost.addEventListener('keydown', tryNow)
-		// cost.addEventListener('keyup', tryNow)
-
-		cost.addEventListener('keydown', sumNNum)
-		cost.addEventListener('keyup', sumNNum)
-
-		function tryNow() {
-			sumNNum(cost.value)
-			// document.getElementById('res').value = result
-			console.log(result)
-		}
+		const input = document.querySelector('#input')
+		input.addEventListener('keydown', sumNNum)
+		input.addEventListener('keyup', sumNNum)
 
 		function sumNNum() {
-
 			result = 0
-			for (let i = 0; i <= cost.value; i++) {
-				if (cost.value > 999999) {
-					document.getElementById('res').value = "try lesser man"
-					break
-				}
+			for (let i = 0; i <= input.value; i++) {
+				if (input.value > 999999) { break }
 				result += i
 			}
-			document.getElementById('res').value = result
+			document.getElementById('result').value = result
 		}
 	</script>
 
