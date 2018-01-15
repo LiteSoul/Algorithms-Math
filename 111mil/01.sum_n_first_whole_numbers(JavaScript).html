@@ -19,17 +19,40 @@
 		<div class="container">
 			<h3 class="title is-3 is-spaced">Algorithm "Sum the N first whole numbers"</h3>
 			<br>
-			<h5 class="subtitle is-5">Add a number between zero and a million to try it:</h5>
-			<h4 class="subtitle is-4">
-				The sum of the first
-				<span>
-					<input type="number" min="0" max="999999" maxlength="6" id="input" class="input is-medium is-rounded">
-				</span>
-				whole numbers is
-				<span>
-					<input type="text" id="result" readonly class="input is-medium is-rounded">
-				</span>
-			</h4>
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Add any number</label>
+					<p class="help">Between zero an a million</p>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="input">
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">The sum of the first</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input is-static" type="number" id="mirror">
+					</div>
+				</div>
+			</div>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">whole numbers is </label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="result" readonly>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 
@@ -44,6 +67,7 @@
 				if (input.value > 999999) { break }
 				result += i
 			}
+			document.getElementById('mirror').value = input.value
 			document.getElementById('result').value = result
 		}
 	</script>
