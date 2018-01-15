@@ -9,7 +9,14 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
 	<style>
 		.input {
-			width: 155px
+			width: 155px;
+			-moz-appearance: textfield;
+		}
+
+		.input::-webkit-outer-spin-button,
+		.input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
 		}
 	</style>
 </head>
@@ -62,12 +69,12 @@
 		input.addEventListener('keyup', sumNNum)
 
 		function sumNNum() {
+			document.getElementById('mirror').value = input.value
 			result = 0
 			for (let i = 0; i <= input.value; i++) {
 				if (input.value > 999999) { break }
 				result += i
 			}
-			document.getElementById('mirror').value = input.value
 			document.getElementById('result').value = result
 		}
 	</script>
