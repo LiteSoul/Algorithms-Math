@@ -6,41 +6,60 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Sum the N first whole numbers</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://gitcdn.link/repo/Chalarangelo/mini.css/master/dist/mini-default.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+	<style>
+		.input {
+			width: 155px
+		}
+	</style>
 </head>
 
 <body>
 
-	<h4>"Sum the N first whole numbers"</h4>
-	<form action="">
-		<span>Enter a number (N)</span>
-		<input type="number" name="num">
-		<button onclick="tryIt()">Go button</button>
-		<input onclick="tryIt()" type="submit" value="Go submit">
+	<div class="container">
+		<br>
+		<h3 class="title is-3 is-spaced">Algorithm "Sum the N first whole numbers"</h3>
+		<br>
+		<h5 class="subtitle is-5">Add a number between zero and a million to try it:</h5>
+		<h4 class="subtitle is-4">
+			The sum of the first
+			<span>
+				<input type="number" min="0" max="999999" maxlength="6" id="cost" class="input is-info is-rounded">
+			</span>
+			whole numbers is
+			<span>
+				<input type="text" id="res" readonly class="input is-info is-rounded">
+			</span>
+		</h4>
+	</div>
 
-	</form>
-	<p id="logger"></p>
+	<span id="here"></span>
 
 	<script>
-		let txt
-		let num
-		let result = 0
+		const cost = document.querySelector('#cost')
+		// cost.addEventListener('keydown', tryNow)
+		// cost.addEventListener('keyup', tryNow)
 
-		function tryIt() {
-			num = prompt('Please enter a whole number:')
-			if (num == null || num == "") {
-				txt = 'User cancelled the prompt.'
-			} else {
-				sumNNum(num)
-				txt = 'The sum of the first ' + num + ' whole numbers is ' + result
-			}
-			document.getElementById('logger').innerHTML = txt;
+		cost.addEventListener('keydown', sumNNum)
+		cost.addEventListener('keyup', sumNNum)
+
+		function tryNow() {
+			sumNNum(cost.value)
+			// document.getElementById('res').value = result
+			console.log(result)
 		}
 
-		function sumNNum(arg) {
-			for (let i = 0; i <= arg; i++) {
+		function sumNNum() {
+
+			result = 0
+			for (let i = 0; i <= cost.value; i++) {
+				if (cost.value > 999999) {
+					document.getElementById('res').value = "try lesser man"
+					break
+				}
 				result += i
 			}
+			document.getElementById('res').value = result
 		}
 	</script>
 
