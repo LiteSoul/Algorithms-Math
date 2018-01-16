@@ -26,51 +26,58 @@
 		<div class="container">
 			<h3 class="title is-3 is-spaced">Algorithm "Emough chairs for the classroom"</h3>
 			<br>
+			<h5 class="subtitle is-5">Add the number of chairs in the classroom, as well as the number of students, to see if there is enough chairs for them:</h5>
 
 			<div class="field is-horizontal">
 				<div class="field-label is-normal">
-					<label class="label">First number</label>
+					<label class="label">Number of chairs</label>
 				</div>
 				<div class="field-body">
 					<div class="field">
-						<input class="input" type="number" id="first">
+						<input class="input" type="number" id="chairs">
 					</div>
 				</div>
 			</div>
 
 			<div class="field is-horizontal">
 				<div class="field-label is-normal">
-					<label class="label">Second number</label>
+					<label class="label">Number of students</label>
 				</div>
 				<div class="field-body">
 					<div class="field">
-						<input class="input" type="number" id="second">
+						<input class="input" type="number" id="students">
 					</div>
 				</div>
 			</div>
 
-			<div class="field is-horizontal">
-				<div class="field-label is-normal">
-					<label class="label">The result of the sum is </label>
-				</div>
-				<div class="field-body">
-					<div class="field">
-						<input class="input" type="number" id="result" readonly>
-					</div>
-				</div>
+			<div class="container is-large">
+				<p id="message"></p>
 			</div>
 
 			<script>
-				const first = document.querySelector('#first')
-				const second = document.querySelector('#second')
-				first.addEventListener('keydown', sum2Num)
-				first.addEventListener('keyup', sum2Num)
-				second.addEventListener('keydown', sum2Num)
-				second.addEventListener('keyup', sum2Num)
+				const chairs = document.querySelector('#chairs')
+				const students = document.querySelector('#students')
+				const message = document.querySelector('#message')
+				chairs.addEventListener('keydown', isEnough)
+				chairs.addEventListener('keyup', isEnough)
+				students.addEventListener('keydown', isEnough)
+				students.addEventListener('keyup', isEnough)
 
-				function sum2Num() {
-					result = Number(first.value) + Number(second.value)
-					document.getElementById('result').value = result
+				function isEnough() {
+					// result = Number(chairs.value) + Number(students.value)
+					// document.getElementById('result').value = result
+					nChairs = Number(chairs.value)
+					nStudents = Number(students.value)
+					if (nChairs > 0 && nStudents > 0) {
+						if (nChairs >= nStudents) {
+							// chairs.value - students.value
+							message.innerHTML = `Great, there are enough chairs for all the students!`
+						} else {
+							missing = students.value - chairs.value
+							message.innerHTML = `Oh, there aren't enough chairs for all the students... You should add ${missing} more chairs`
+						}
+					}
+
 				}
 			</script>
 
