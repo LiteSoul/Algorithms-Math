@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Show the month according to it's number</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+	<style>
+		.input {
+			width: 155px;
+			-moz-appearance: textfield;
+		}
+
+		.input::-webkit-outer-spin-button,
+		.input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="section">
+		<div class="container">
+			<h3 class="title is-3 is-spaced">Algorithm "Show the month according to it's number"</h3>
+			<br>
+			<h5 class="subtitle is-5">Add any two numbers to try it:</h5>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">First number</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="first">
+					</div>
+				</div>
+			</div>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Second number</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="second">
+					</div>
+				</div>
+			</div>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">The result of the sum is </label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="result" readonly>
+					</div>
+				</div>
+			</div>
+
+			<script>
+				const first = document.querySelector('#first')
+				const second = document.querySelector('#second')
+				first.addEventListener('keydown', sum2Num)
+				first.addEventListener('keyup', sum2Num)
+				second.addEventListener('keydown', sum2Num)
+				second.addEventListener('keyup', sum2Num)
+
+				function sum2Num() {
+					result = Number(first.value) + Number(second.value)
+					document.getElementById('result').value = result
+				}
+			</script>
+
+</body>
+
+</html>
