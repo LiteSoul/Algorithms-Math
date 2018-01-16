@@ -57,10 +57,48 @@
 				number.addEventListener('keyup', number2name)
 
 				function number2name() {
-					if (number.value > 12 || number.value < 1) {
-						result.value = '(Between...1...and...12)'
-					} else {
-						console.log('bb')
+					switch (number.value) {
+						case '':
+							result.value = ''
+							break;
+						case '1':
+							result.value = 'January'
+							break;
+						case '2':
+							result.value = 'February'
+							break;
+						case '3':
+							result.value = 'March'
+							break;
+						case '4':
+							result.value = 'April'
+							break;
+						case '5':
+							result.value = 'May'
+							break;
+						case '6':
+							result.value = 'June'
+							break;
+						case '7':
+							result.value = 'July'
+							break;
+						case '8':
+							result.value = 'August'
+							break;
+						case '9':
+							result.value = 'September'
+							break;
+						case '10':
+							result.value = 'October'
+							break;
+						case '11':
+							result.value = 'November'
+							break;
+						case '12':
+							result.value = 'December'
+							break;
+						default:
+							result.value = '(Between...1...and...12)'
 					}
 				}
 			</script>
