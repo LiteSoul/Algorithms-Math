@@ -52,53 +52,63 @@
 
 			<button id='goer'>Go</button>
 
-			<table class="table is-narrow is-hoverable is-stripped is-bordered">
-				<thead>
+			<table id="tableMain" class="table is-narrow is-hoverable is-striped is-bordered">
+				<thead id="tableHead">
 					<tr>
 						<th>one</th>
 						<th>two</th>
 						<th>three</th>
 					</tr>
 				</thead>
-				<tbody id="tableMain"></tbody>
+				<tbody id="tableBody"></tbody>
 			</table>
 
 			<script>
-				const goer = document.getElementById('goer')
-				const chosen = document.querySelector('#chosen')
-				const multiplier = document.querySelector('#multiplier')
-				goer.addEventListener('click', multiTable)
+				const chosen = document.getElementById('chosen')
+				const multiplier = document.getElementById('multiplier')
+				const tableMain = document.getElementById('tableMain')
+				const tableHead = document.getElementById('tableHead')
+				const tableBody = document.getElementById('tableBody')
 				// chosen.addEventListener('keydown', multiTable)
-				// chosen.addEventListener('keyup', multiTable)
+				chosen.addEventListener('keyup', multiTable)
 				// multiplier.addEventListener('keydown', multiTable)
-				// multiplier.addEventListener('keyup', multiTable)
+				multiplier.addEventListener('keyup', multiTable)
 
 				function multiTable() {
-					let i = 1
-					while (i < multiplier.value) {
+					if (chosen.value > 0 && multiplier.value > 0) {
+						// tableMain.removeChild(tableBody)
+						tableBody.parentNode.removeChild(tableBody)
+						let tBody = document.createElement('tbody')
+						tBody.setAttribute('id', 'tableBody')
+						tableMain.appendChild(tBody)
 
-						result = chosen.value * i
+						let i = 1
+						while (i <= multiplier.value) {
 
-						let tableRow = document.createElement('tr')
-						let tableCell1 = document.createElement('td')
-						let chosenText = document.createTextNode(chosen.value)
-						let tableCell2 = document.createElement('td')
-						let multiplierText = document.createTextNode(i)
-						let tableCell3 = document.createElement('td')
-						let resultText = document.createTextNode(result)
+							result = chosen.value * i
 
-						tableCell1.appendChild(chosenText)
-						tableCell2.appendChild(multiplierText)
-						tableCell3.appendChild(resultText)
+							let tableRow = document.createElement('tr')
+							let tableCell1 = document.createElement('td')
+							let chosenText = document.createTextNode(chosen.value)
+							let tableCell2 = document.createElement('td')
+							let multiplierText = document.createTextNode(`* ${i} =`)
+							let tableCell3 = document.createElement('td')
+							let resultText = document.createTextNode(result)
 
-						tableRow.appendChild(tableCell1)
-						tableRow.appendChild(tableCell2)
-						tableRow.appendChild(tableCell3)
+							tableCell1.appendChild(chosenText)
+							tableCell2.appendChild(multiplierText)
+							tableCell3.appendChild(resultText)
 
-						document.getElementById('tableMain').appendChild(tableRow)
+							tableRow.appendChild(tableCell1)
+							tableRow.appendChild(tableCell2)
+							tableRow.appendChild(tableCell3)
 
-						i++
+							tableBody.appendChild(tableRow)
+
+							i++
+						}
 					}
+
 
 				}
 			</script>
