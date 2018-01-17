@@ -30,48 +30,75 @@
 
 			<div class="field is-horizontal">
 				<div class="field-label is-normal">
-					<label class="label">First number</label>
+					<label class="label">Choose a number</label>
 				</div>
 				<div class="field-body">
 					<div class="field">
-						<input class="input" type="number" id="first">
+						<input class="input" type="number" id="chosen">
 					</div>
 				</div>
 			</div>
 
 			<div class="field is-horizontal">
 				<div class="field-label is-normal">
-					<label class="label">Second number</label>
+					<label class="label">And a multiplier</label>
 				</div>
 				<div class="field-body">
 					<div class="field">
-						<input class="input" type="number" id="second">
+						<input class="input" type="number" id="multiplier">
 					</div>
 				</div>
 			</div>
 
-			<div class="field is-horizontal">
-				<div class="field-label is-normal">
-					<label class="label">The result of the sum is </label>
-				</div>
-				<div class="field-body">
-					<div class="field">
-						<input class="input" type="number" id="result" readonly>
-					</div>
-				</div>
-			</div>
+			<button id='goer'>Go</button>
+
+			<table class="table is-narrow is-hoverable is-stripped is-bordered">
+				<thead>
+					<tr>
+						<th>one</th>
+						<th>two</th>
+						<th>three</th>
+					</tr>
+				</thead>
+				<tbody id="tableMain"></tbody>
+			</table>
 
 			<script>
-				const first = document.querySelector('#first')
-				const second = document.querySelector('#second')
-				first.addEventListener('keydown', sum2Num)
-				first.addEventListener('keyup', sum2Num)
-				second.addEventListener('keydown', sum2Num)
-				second.addEventListener('keyup', sum2Num)
+				const goer = document.getElementById('goer')
+				const chosen = document.querySelector('#chosen')
+				const multiplier = document.querySelector('#multiplier')
+				goer.addEventListener('click', multiTable)
+				// chosen.addEventListener('keydown', multiTable)
+				// chosen.addEventListener('keyup', multiTable)
+				// multiplier.addEventListener('keydown', multiTable)
+				// multiplier.addEventListener('keyup', multiTable)
 
-				function sum2Num() {
-					result = Number(first.value) + Number(second.value)
-					document.getElementById('result').value = result
+				function multiTable() {
+					let i = 1
+					while (i < multiplier.value) {
+
+						result = chosen.value * i
+
+						let tableRow = document.createElement('tr')
+						let tableCell1 = document.createElement('td')
+						let chosenText = document.createTextNode(chosen.value)
+						let tableCell2 = document.createElement('td')
+						let multiplierText = document.createTextNode(i)
+						let tableCell3 = document.createElement('td')
+						let resultText = document.createTextNode(result)
+
+						tableCell1.appendChild(chosenText)
+						tableCell2.appendChild(multiplierText)
+						tableCell3.appendChild(resultText)
+
+						tableRow.appendChild(tableCell1)
+						tableRow.appendChild(tableCell2)
+						tableRow.appendChild(tableCell3)
+
+						document.getElementById('tableMain').appendChild(tableRow)
+
+					}
+
 				}
 			</script>
 
