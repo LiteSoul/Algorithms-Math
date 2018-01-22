@@ -68,13 +68,16 @@
 				const multiplier = document.getElementById('multiplier')
 				const tableMain = document.getElementById('tableMain')
 				const tableHead = document.getElementById('tableHead')
-				const tableBody = document.getElementById('tableBody')
+				// const tableBody = document.getElementById('tableBody')
 				// chosen.addEventListener('keydown', multiTable)
 				chosen.addEventListener('keyup', multiTable)
 				// multiplier.addEventListener('keydown', multiTable)
 				multiplier.addEventListener('keyup', multiTable)
 
 				function multiTable() {
+
+					const tableBody = document.getElementById('tableBody')
+
 					if (chosen.value > 0 && multiplier.value > 0) {
 						// tableMain.removeChild(tableBody)
 						// currently not working, check the function:
@@ -83,10 +86,14 @@
 						// tBody.setAttribute('id', 'tableBody')
 						// tableMain.appendChild(tBody)
 
+
 						for (let i = 0; i < tableBody.children.length; i++) {
+							// const tableBody = document.getElementById('tableBody')
 							// const element = array[i];
 							console.log(tableBody.childNodes[i])
+							console.log(tableBody.childNodes[i + 1])
 							tableBody.removeChild(tableBody.childNodes[i]);
+							// tableBody.removeChild(tableBody.childNodes[i + 1]);
 							// console.log(tableBody.children)
 						}
 
