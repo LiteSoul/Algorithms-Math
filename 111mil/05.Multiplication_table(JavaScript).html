@@ -78,10 +78,17 @@
 					if (chosen.value > 0 && multiplier.value > 0) {
 						// tableMain.removeChild(tableBody)
 						// currently not working, check the function:
-						tableBody.parentNode.removeChild(tableBody)
-						let tBody = document.createElement('tbody')
-						tBody.setAttribute('id', 'tableBody')
-						tableMain.appendChild(tBody)
+						// tableBody.parentNode.removeChild(tableBody)
+						// let tBody = document.createElement('tbody')
+						// tBody.setAttribute('id', 'tableBody')
+						// tableMain.appendChild(tBody)
+
+						for (let i = 0; i < tableBody.children.length; i++) {
+							// const element = array[i];
+							console.log(tableBody.childNodes[i])
+							tableBody.removeChild(tableBody.childNodes[i]);
+							// console.log(tableBody.children)
+						}
 
 						let i = 1
 						while (i <= multiplier.value) {
