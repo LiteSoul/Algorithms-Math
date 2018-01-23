@@ -68,35 +68,20 @@
 				const multiplier = document.getElementById('multiplier')
 				const tableMain = document.getElementById('tableMain')
 				const tableHead = document.getElementById('tableHead')
-				// const tableBody = document.getElementById('tableBody')
-				// chosen.addEventListener('keydown', multiTable)
+				const tableBody = document.getElementById('tableBody')
+				chosen.addEventListener('keydown', multiTable)
 				chosen.addEventListener('keyup', multiTable)
-				// multiplier.addEventListener('keydown', multiTable)
+				multiplier.addEventListener('keydown', multiTable)
 				multiplier.addEventListener('keyup', multiTable)
 
 				function multiTable() {
-
-					const tableBody = document.getElementById('tableBody')
-
+					//If user entered values on both, then function starts
 					if (chosen.value > 0 && multiplier.value > 0) {
-						// tableMain.removeChild(tableBody)
-						// currently not working, check the function:
-						// tableBody.parentNode.removeChild(tableBody)
-						// let tBody = document.createElement('tbody')
-						// tBody.setAttribute('id', 'tableBody')
-						// tableMain.appendChild(tBody)
-
-
-						for (let i = 0; i < tableBody.children.length; i++) {
-							// const tableBody = document.getElementById('tableBody')
-							// const element = array[i];
-							console.log(tableBody.childNodes[i])
-							console.log(tableBody.childNodes[i + 1])
-							tableBody.removeChild(tableBody.childNodes[i]);
-							// tableBody.removeChild(tableBody.childNodes[i - 1]);
-							// console.log(tableBody.children)
+						// Removes the childs from tableBody before inserting new tables, like a RESET
+						while (tableBody.hasChildNodes()) {
+							tableBody.removeChild(tableBody.firstChild);
 						}
-
+						// Do the simple math, then creates elements and append them to tableBody to display
 						let i = 1
 						while (i <= multiplier.value) {
 
@@ -118,12 +103,11 @@
 							tableRow.appendChild(tableCell2)
 							tableRow.appendChild(tableCell3)
 
-							document.getElementById('tableBody').appendChild(tableRow)
+							tableBody.appendChild(tableRow)
 
 							i++
 						}
 					}
-
 
 				}
 			</script>
