@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Average of four numbers</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+	<style>
+		.input {
+			width: 155px;
+			-moz-appearance: textfield;
+		}
+
+		.input::-webkit-outer-spin-button,
+		.input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="section">
+		<div class="container">
+			<h3 class="title is-3 is-spaced">Algorithm "Average of four numbers"</h3>
+			<br>
+			<h5 class="subtitle is-5">Add the number you want to know the multiplication table of, and up to what number to be multiplied:</h5>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Add any</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="one">
+					</div>
+					<div class="field">
+						<input class="input" type="number" id="two">
+					</div>
+				</div>
+			</div>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">four numbers</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="three">
+					</div>
+					<div class="field">
+						<input class="input" type="number" id="four">
+					</div>
+				</div>
+			</div>
+
+			<div class="container is-large">
+				<p id="message"></p>
+			</div>
+
+			<script>
+				const one = document.getElementById('one')
+				const two = document.getElementById('two')
+				const three = document.getElementById('three')
+				const four = document.getElementById('four')
+				const message = document.getElementById('message')
+				one.addEventListener('keydown', averageOfFour)
+				one.addEventListener('keyup', averageOfFour)
+				two.addEventListener('keydown', averageOfFour)
+				two.addEventListener('keyup', averageOfFour)
+				three.addEventListener('keydown', averageOfFour)
+				three.addEventListener('keyup', averageOfFour)
+				four.addEventListener('keydown', averageOfFour)
+				four.addEventListener('keyup', averageOfFour)
+
+				function averageOfFour() {
+					//If user entered values on all four, then function starts
+					if (one.value > 0 && two.value > 0 && three.value > 0 && four.value > 0) {
+
+					}
+				}
+
+				}
+			</script>
+
+</body>
+
+</html>
