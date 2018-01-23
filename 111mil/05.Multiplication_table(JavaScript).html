@@ -50,24 +50,13 @@
 				</div>
 			</div>
 
-			<button id='goer'>Go</button>
-
-			<table id="tableMain" class="table is-narrow is-hoverable is-striped is-bordered">
-				<thead id="tableHead">
-					<tr>
-						<th>one</th>
-						<th>two</th>
-						<th>three</th>
-					</tr>
-				</thead>
+			<table class="table is-narrow is-hoverable is-striped">
 				<tbody id="tableBody"></tbody>
 			</table>
 
 			<script>
 				const chosen = document.getElementById('chosen')
 				const multiplier = document.getElementById('multiplier')
-				const tableMain = document.getElementById('tableMain')
-				const tableHead = document.getElementById('tableHead')
 				const tableBody = document.getElementById('tableBody')
 				chosen.addEventListener('keydown', multiTable)
 				chosen.addEventListener('keyup', multiTable)
