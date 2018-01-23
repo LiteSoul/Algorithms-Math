@@ -23,11 +23,10 @@
 
 <body>
 	<div class="section">
-		<div class="container">
+		<st class="container">
 			<h3 class="title is-3 is-spaced">Algorithm "Average of four numbers"</h3>
 			<br>
-			<h5 class="subtitle is-5">Add the number you want to know the multiplication table of, and up to what number to be multiplied:</h5>
-
+			
 			<div class="field is-horizontal">
 				<div class="field-label is-normal">
 					<label class="label">Add any</label>
@@ -66,22 +65,21 @@
 				const three = document.getElementById('three')
 				const four = document.getElementById('four')
 				const message = document.getElementById('message')
-				one.addEventListener('keydown', averageOfFour)
-				one.addEventListener('keyup', averageOfFour)
-				two.addEventListener('keydown', averageOfFour)
-				two.addEventListener('keyup', averageOfFour)
-				three.addEventListener('keydown', averageOfFour)
-				three.addEventListener('keyup', averageOfFour)
-				four.addEventListener('keydown', averageOfFour)
-				four.addEventListener('keyup', averageOfFour)
+				one.addEventListener('keydown', averageWithSum)
+				one.addEventListener('keyup', averageWithSum)
+				two.addEventListener('keydown', averageWithSum)
+				two.addEventListener('keyup', averageWithSum)
+				three.addEventListener('keydown', averageWithSum)
+				three.addEventListener('keyup', averageWithSum)
+				four.addEventListener('keydown', averageWithSum)
+				four.addEventListener('keyup', averageWithSum)
 
-				function averageOfFour() {
+				function averageWithSum() {
 					//If user entered values on all four, then function starts
 					if (one.value > 0 && two.value > 0 && three.value > 0 && four.value > 0) {
-
+						result = (Number(one.value) + Number(two.value) + Number(three.value) + Number(four.value)) / 4
+						message.innerHTML = `The average of those four numbers is ${result}`
 					}
-				}
-
 				}
 			</script>
 
