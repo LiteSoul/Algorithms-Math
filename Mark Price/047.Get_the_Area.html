@@ -66,18 +66,16 @@
 	</div>
 
 	<script>
-		const input = document.querySelector('#input')
-		input.addEventListener('keydown', sumNNum)
-		input.addEventListener('keyup', sumNNum)
+		const base = document.getElementById('base')
+		const height = document.getElementById('height')
+		const result = document.getElementById('result')
+		base.addEventListener('keydown', function () { triangleArea(base.value, height.value) })
+		base.addEventListener('keyup', function () { triangleArea(base.value, height.value) })
+		height.addEventListener('keydown', function () { triangleArea(base.value, height.value) })
+		height.addEventListener('keyup', function () { triangleArea(base.value, height.value) })
 
-		function sumNNum() {
-			document.getElementById('mirror').value = input.value
-			result = 0
-			for (let i = 0; i <= input.value; i++) {
-				if (input.value > 999999) { break }
-				result += i
-			}
-			document.getElementById('result').value = result
+		function triangleArea(base, height) {
+			result.value = base * height
 		}
 	</script>
 
