@@ -26,13 +26,10 @@
 		<div class="container">
 			<h3 class="title is-3 is-spaced">Challenge "Get the Area through a function"</h3>
 			<br>
-			<h5 class="subtitle is-5">1 - Given one or more parameters, create a function that returns the area of a triangle.
-				<br> 2 - Given one or more parameters, create a function that returns the area of a circle.
-				<br> 3 - Create a single function that can take one or more parameters, and can return the area regardless of the shape (single
-				function for triangle, circle, or rectangle)</h5>
+			<h5 class="subtitle is-5">1 - Given one or more parameters, create a function that returns the area of a triangle:</h5>
 			<div class="field is-horizontal">
 				<div class="field-label is-normal">
-					<label class="label">Base size</label>
+					<label class="label">Add base size</label>
 				</div>
 				<div class="field-body">
 					<div class="field">
@@ -42,7 +39,7 @@
 			</div>
 			<div class="field is-horizontal">
 				<div class="field-label is-normal">
-					<label class="label">Height size</label>
+					<label class="label">Add height size</label>
 				</div>
 				<div class="field-body">
 					<div class="field">
@@ -53,7 +50,66 @@
 
 			<div class="field is-horizontal">
 				<div class="field-label is-normal">
-					<label class="label">The triangle area is: </label>
+					<label class="label">The area of the triangle is </label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="result" readonly>
+					</div>
+				</div>
+			</div>
+
+			<br>
+			<h5 class="subtitle is-5">2 - Given one or more parameters, create a function that returns the area of a circle:</h5>
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Add the circle diameter</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="diameter">
+					</div>
+				</div>
+			</div>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">The area of the circle is </label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="circleResult" readonly>
+					</div>
+				</div>
+			</div>
+
+			<br>
+			<h5 class="subtitle is-5">3 - Create a single function that can take one or more parameters, and can return the area regardless of the shape (single
+				function for triangle, circle, or rectangle)</h5>
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Add base size</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="base">
+					</div>
+				</div>
+			</div>
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Add height size</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="height">
+					</div>
+				</div>
+			</div>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">The triangle area is </label>
 				</div>
 				<div class="field-body">
 					<div class="field">
@@ -75,8 +131,25 @@
 		height.addEventListener('keyup', function () { triangleArea(base.value, height.value) })
 
 		function triangleArea(base, height) {
-			result.value = base * height
+			if (base > 0 && height > 0) {
+				result.value = (base * height) / 2
+			}
 		}
+
+		const diameter = document.getElementById('diameter')
+		const circleResult = document.getElementById('circleResult')
+		diameter.addEventListener('keydown', function () { circleArea(diameter.value) })
+		diameter.addEventListener('keyup', function () { circleArea(diameter.value) })
+
+		function circleArea(diameter) {
+			if (diameter > 0) {
+				radius = diameter / 2
+				area = Math.pow(radius, 2) * Math.PI
+				area2digits = Math.round(area * 100) / 100
+				circleResult.value = area2digits
+			}
+		}
+
 	</script>
 
 </body>
