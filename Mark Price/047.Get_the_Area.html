@@ -241,7 +241,6 @@
 			if (width > 0 && height > 0) {
 				place.value = width * height
 			}
-			place.value = width * height
 		}
 		//Get triangle values from bottom "Main" section
 		const triangleBase = document.getElementById('triangleBase')
@@ -264,14 +263,14 @@
 		rectangleBtn.addEventListener('click', function () { mainArea(rectangleBtn, rectangleBtn.innerText) })
 		triangleBtn.addEventListener('click', function () { mainArea(triangleBtn, triangleBtn.innerText) })
 		circleBtn.addEventListener('click', function () { mainArea(circleBtn, circleBtn.innerText) })
-
+		//Get buttons from bottom 'Main' section
 		const Rectangle = document.getElementById('Rectangle')
 		const Triangle = document.getElementById('Triangle')
 		const Circle = document.getElementById('Circle')
 		Rectangle.style.display = 'none'
 		Triangle.style.display = 'none'
 		Circle.style.display = 'none'
-
+		//Final 'Main' function
 		function mainArea(btn, innerText) {
 			// Make the clicked button Active
 			rectangleBtn.classList.remove('is-active');
@@ -283,13 +282,6 @@
 			Triangle.style.display = 'none'
 			Circle.style.display = 'none'
 			window[innerText].style.display = 'block'
-
-			if (innerText === 'Rectangle') {
-				console.log('rectangle function incoming')
-			}
-			else if (innerText === 'Triangle') {
-
-			}
 		}
 
 	</script>
