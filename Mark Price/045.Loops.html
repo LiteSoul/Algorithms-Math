@@ -118,15 +118,17 @@
 		}
 		addStars()
 		// Challenge 3
-		for (let i = 1; i <= 100; i++) {
-			if (i % 3 === 0 && i % 5 !== 0) {
-				console.log('Code')
-			} else if (i % 5 === 0 && i % 3 !== 0) {
-				console.log('Monkey')
-			} else if (i % 3 === 0 && i % 5 === 0) {
-				console.log('CodeMonkey')
-			} else {
-				console.log(i)
+		function codeMonkey() {
+			for (let i = 1; i <= 100; i++) {
+				if (i % 3 === 0 && i % 5 !== 0) {
+					console.log('Code')
+				} else if (i % 5 === 0 && i % 3 !== 0) {
+					console.log('Monkey')
+				} else if (i % 3 === 0 && i % 5 === 0) {
+					console.log('CodeMonkey')
+				} else {
+					console.log(i)
+				}
 			}
 		}
 	</script>
