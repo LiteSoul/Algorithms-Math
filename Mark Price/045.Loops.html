@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Get the Area</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+	<style>
+		.input {
+			width: 155px;
+			-moz-appearance: textfield;
+		}
+
+		.input::-webkit-outer-spin-button,
+		.input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="section">
+		<div class="container">
+			<h3 class="title is-3 is-spaced">Challenge "Get the Area through a function"</h3>
+			<br>
+			<h5 class="subtitle is-5">1 - Given one or more parameters, create a function that returns the area of a triangle:</h5>
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Add base size</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="base">
+					</div>
+				</div>
+			</div>
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Add height size</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="height">
+					</div>
+				</div>
+			</div>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">The area of the triangle is </label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="result" readonly>
+					</div>
+				</div>
+			</div>
+
+			<br>
+			<h5 class="subtitle is-5">2 - Given one or more parameters, create a function that returns the area of a circle:</h5>
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Add the circle diameter</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="diameter">
+					</div>
+				</div>
+			</div>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">The area of the circle is </label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="circleResult" readonly>
+					</div>
+				</div>
+			</div>
+
+			<br>
+			<h5 class="subtitle is-5">3 - Create a single function that can take one or more parameters, and can return the area regardless of the shape (single
+				function for triangle, circle, or rectangle)</h5>
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Chose the shape</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<div class="buttons has-addons">
+							<span class="button" id="rectangleBtn">Rectangle</span>
+							<span class="button" id="triangleBtn">Triangle</span>
+							<span class="button" id="circleBtn">Circle</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="Rectangle">
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Add width size</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<input class="input" type="number" id="rectangleWidth">
+						</div>
+					</div>
+				</div>
+
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Add height size</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<input class="input" type="number" id="rectangleHeight">
+						</div>
+					</div>
+				</div>
+
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">The area of the rectangle is </label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<input class="input" type="number" id="rectangleResult" readonly>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="Triangle">
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Add base size</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<input class="input" type="number" id="triangleBase">
+						</div>
+					</div>
+				</div>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Add height size</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<input class="input" type="number" id="triangleHeight">
+						</div>
+					</div>
+				</div>
+
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">The area of the triangle is </label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<input class="input" type="number" id="triangleResult" readonly>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="Circle">
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">Add the circle diameter</label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<input class="input" type="number" id="diameterMain">
+						</div>
+					</div>
+				</div>
+
+				<div class="field is-horizontal">
+					<div class="field-label is-normal">
+						<label class="label">The area of the circle is </label>
+					</div>
+					<div class="field-body">
+						<div class="field">
+							<input class="input" type="number" id="circleResultMain" readonly>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<script>
+		// Get triangle values
+		const base = document.getElementById('base')
+		const height = document.getElementById('height')
+		const result = document.getElementById('result')
+		base.addEventListener('keydown', function () { triangleArea(base.value, height.value, result) })
+		base.addEventListener('keyup', function () { triangleArea(base.value, height.value, result) })
+		height.addEventListener('keydown', function () { triangleArea(base.value, height.value, result) })
+		height.addEventListener('keyup', function () { triangleArea(base.value, height.value, result) })
+		//Triangle function
+		function triangleArea(base, height, place) {
+			if (base > 0 && height > 0) {
+				place.value = (base * height) / 2
+			}
+		}
+		//Get circle values
+		const diameter = document.getElementById('diameter')
+		const circleResult = document.getElementById('circleResult')
+		diameter.addEventListener('keydown', function () { circleArea(circleResult, diameter.value) })
+		diameter.addEventListener('keyup', function () { circleArea(circleResult, diameter.value) })
+		//Circle function
+		function circleArea(place, diameter) {
+			if (diameter > 0) {
+				radius = diameter / 2
+				area = Math.pow(radius, 2) * Math.PI
+				area2digits = Math.round(area * 100) / 100
+				place.value = area2digits
+			}
+		}
+		//Get rectangle values
+		const rectangleWidth = document.getElementById('rectangleWidth')
+		const rectangleHeight = document.getElementById('rectangleHeight')
+		const rectangleResult = document.getElementById('rectangleResult')
+		rectangleWidth.addEventListener('keydown', function () { rectangleArea(rectangleWidth.value, rectangleHeight.value, rectangleResult) })
+		rectangleWidth.addEventListener('keyup', function () { rectangleArea(rectangleWidth.value, rectangleHeight.value, rectangleResult) })
+		rectangleHeight.addEventListener('keydown', function () { rectangleArea(rectangleWidth.value, rectangleHeight.value, rectangleResult) })
+		rectangleHeight.addEventListener('keyup', function () { rectangleArea(rectangleWidth.value, rectangleHeight.value, rectangleResult) })
+		//Rectangle function
+		function rectangleArea(width, height, place) {
+			if (width > 0 && height > 0) {
+				place.value = width * height
+			}
+		}
+		//Get triangle values from bottom "Main" section
+		const triangleBase = document.getElementById('triangleBase')
+		const triangleHeight = document.getElementById('triangleHeight')
+		const triangleResult = document.getElementById('triangleResult')
+		triangleBase.addEventListener('keydown', function () { triangleArea(triangleBase.value, triangleHeight.value, triangleResult) })
+		triangleBase.addEventListener('keyup', function () { triangleArea(triangleBase.value, triangleHeight.value, triangleResult) })
+		triangleHeight.addEventListener('keydown', function () { triangleArea(triangleBase.value, triangleHeight.value, triangleResult) })
+		triangleHeight.addEventListener('keyup', function () { triangleArea(triangleBase.value, triangleHeight.value, triangleResult) })
+		//Get circle values from bottom "Main" section
+		const diameterMain = document.getElementById('diameterMain')
+		const circleResultMain = document.getElementById('circleResultMain')
+		diameterMain.addEventListener('keydown', function () { circleArea(circleResultMain, diameterMain.value) })
+		diameterMain.addEventListener('keyup', function () { circleArea(circleResultMain, diameterMain.value) })
+		//Get rectangle values from bottom "Main" section
+		const rectangleBtn = document.getElementById('rectangleBtn')
+		const triangleBtn = document.getElementById('triangleBtn')
+		const circleBtn = document.getElementById('circleBtn')
+		const finalResult = document.getElementById('finalResult')
+		rectangleBtn.addEventListener('click', function () { mainArea(rectangleBtn, rectangleBtn.innerText) })
+		triangleBtn.addEventListener('click', function () { mainArea(triangleBtn, triangleBtn.innerText) })
+		circleBtn.addEventListener('click', function () { mainArea(circleBtn, circleBtn.innerText) })
+		//Get buttons from bottom 'Main' section
+		const Rectangle = document.getElementById('Rectangle')
+		const Triangle = document.getElementById('Triangle')
+		const Circle = document.getElementById('Circle')
+		Rectangle.style.display = 'none'
+		Triangle.style.display = 'none'
+		Circle.style.display = 'none'
+		//Final 'Main' function
+		function mainArea(btn, innerText) {
+			// Make the clicked button Active
+			rectangleBtn.classList.remove('is-active');
+			triangleBtn.classList.remove('is-active');
+			circleBtn.classList.remove('is-active');
+			btn.classList.add('is-active');
+			// Display the chosen shape questions
+			Rectangle.style.display = 'none'
+			Triangle.style.display = 'none'
+			Circle.style.display = 'none'
+			window[innerText].style.display = 'block'
+		}
+
+	</script>
+
+</body>
+
+</html>
