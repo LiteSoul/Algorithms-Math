@@ -60,18 +60,6 @@
 			<textarea class="textarea is-success" id="stars" rows="6" readonly>
 			</textarea>
 
-			<div class="field is-horizontal">
-				<textarea class="textarea" rows="6" readonly>
-							*  
-							* *  
-							* * *  
-							* * * *  
-							* * * * *  
-					</textarea>
-				<textarea class="textarea is-success" id="stars" rows="6" readonly>
-					</textarea>
-			</div>
-
 			<br>
 			<h5 class="subtitle is-5">3 - Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print Code instead
 				of the number and for the multiples of five print Monkey. For numbers which are multiples of both three and five print
@@ -98,9 +86,10 @@
 	</div>
 
 	<script>
+		// Challenge 1. Get the html zone/list to add the results
 		const oddORevenZone = document.getElementById('oddOReven')
 		const oddORevenList = oddORevenZone.getElementsByTagName('input')
-
+		// Function for displaying odd or even
 		function oddEven() {
 			for (let i = 0; i <= 15; i++) {
 				if (i % 2 === 0) {
@@ -116,9 +105,9 @@
 			}
 		}
 		oddEven()
-
+		// Challenge 2. Getting the textarea to print the loop results
 		const stars = document.getElementById('stars')
-
+		// Function for printing the stars (asterisks)
 		function addStars() {
 			let s = '*'
 			for (let i = 0; i < 5; i++) {
@@ -128,6 +117,18 @@
 			}
 		}
 		addStars()
+		// Challenge 3
+		for (let i = 1; i <= 100; i++) {
+			if (i % 3 === 0 && i % 5 !== 0) {
+				console.log('Code')
+			} else if (i % 5 === 0 && i % 3 !== 0) {
+				console.log('Monkey')
+			} else if (i % 3 === 0 && i % 5 === 0) {
+				console.log('CodeMonkey')
+			} else {
+				console.log(i)
+			}
+		}
 	</script>
 
 </body>
