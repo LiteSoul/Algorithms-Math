@@ -8,7 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
 	<style>
-		.input {
+		.input,
+		.textarea {
 			width: 155px;
 			-moz-appearance: textfield;
 		}
@@ -46,43 +47,36 @@
 				<input class="input" type="text" placeholder="Text input" readonly>
 				<input class="input" type="text" placeholder="Text input" readonly>
 			</div>
+
+			<br>
+			<h5 class="subtitle is-5">2 - Using loops, create a Javascript program that prints out the following:</h5>
+			<textarea class="textarea" rows="6" readonly>
+					*  
+					* *  
+					* * *  
+					* * * *  
+					* * * * *  
+			</textarea>
+			<textarea class="textarea is-success" id="stars" rows="6" readonly>
+			</textarea>
+
 			<div class="field is-horizontal">
-				<div class="field-label is-normal">
-					<label class="label">Add base size</label>
-				</div>
-				<div class="field-body">
-					<div class="field">
-						<input class="input" type="number" id="base">
-					</div>
-				</div>
+				<textarea class="textarea" rows="6" readonly>
+							*  
+							* *  
+							* * *  
+							* * * *  
+							* * * * *  
+					</textarea>
+				<textarea class="textarea is-success" id="stars" rows="6" readonly>
+					</textarea>
 			</div>
 
 			<br>
-			<h5 class="subtitle is-5">2 - Given one or more parameters, create a function that returns the area of a circle:</h5>
-			<div class="field is-horizontal">
-				<div class="field-label is-normal">
-					<label class="label">Add the circle diameter</label>
-				</div>
-				<div class="field-body">
-					<div class="field">
-						<input class="input" type="number" id="diameter">
-					</div>
-				</div>
-			</div>
-
-			<div class="field is-horizontal">
-				<div class="field-label is-normal">
-					<label class="label">The area of the circle is </label>
-				</div>
-				<div class="field-body">
-					<div class="field">
-					</div>
-				</div>
-			</div>
-
-			<br>
-			<h5 class="subtitle is-5">3 - Create a single function that can take one or more parameters, and can return the area regardless of the shape (single
-				function for triangle, circle, or rectangle)</h5>
+			<h5 class="subtitle is-5">3 - Write a JavaScript program which iterates the integers from 1 to 100. But for multiples of three print Code instead
+				of the number and for the multiples of five print Monkey. For numbers which are multiples of both three and five print
+				CodeMonkey:
+			</h5>
 			<div class="field is-horizontal">
 				<div class="field-label is-normal">
 					<label class="label">Chose the shape</label>
@@ -98,99 +92,6 @@
 				</div>
 			</div>
 
-			<div id="Rectangle">
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Add width size</label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<input class="input" type="number" id="rectangleWidth">
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Add height size</label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<input class="input" type="number" id="rectangleHeight">
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">The area of the rectangle is </label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<input class="input" type="number" id="rectangleResult" readonly>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div id="Triangle">
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Add base size</label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<input class="input" type="number" id="triangleBase">
-						</div>
-					</div>
-				</div>
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Add height size</label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<input class="input" type="number" id="triangleHeight">
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">The area of the triangle is </label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<input class="input" type="number" id="triangleResult" readonly>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div id="Circle">
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Add the circle diameter</label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<input class="input" type="number" id="diameterMain">
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">The area of the circle is </label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<input class="input" type="number" id="circleResultMain" readonly>
-						</div>
-					</div>
-				</div>
-			</div>
 
 
 		</div>
@@ -215,6 +116,18 @@
 			}
 		}
 		oddEven()
+
+		const stars = document.getElementById('stars')
+
+		function addStars() {
+			let s = '*'
+			for (let i = 0; i < 5; i++) {
+				console.log(s)
+				stars.innerHTML += s + ' '
+				s += '*'
+			}
+		}
+		addStars()
 	</script>
 
 </body>
