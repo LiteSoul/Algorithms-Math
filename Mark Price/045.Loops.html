@@ -65,22 +65,11 @@
 				of the number and for the multiples of five print Monkey. For numbers which are multiples of both three and five print
 				CodeMonkey:
 			</h5>
-			<div class="field is-horizontal">
-				<div class="field-label is-normal">
-					<label class="label">Chose the shape</label>
-				</div>
-				<div class="field-body">
-					<div class="field">
-						<div class="buttons has-addons">
-							<span class="button" id="rectangleBtn">Rectangle</span>
-							<span class="button" id="triangleBtn">Triangle</span>
-							<span class="button" id="circleBtn">Circle</span>
-						</div>
-					</div>
-				</div>
+			<div class="buttons has-addons">
+				<span class="button">Yes</span>
+				<span class="button">Maybe</span>
+				<span class="button">No</span>
 			</div>
-
-
 
 		</div>
 	</div>
@@ -118,6 +107,8 @@
 		}
 		addStars()
 		// Challenge 3
+		const monkeyZone = document.getElementsByClassName('buttons')
+
 		function codeMonkey() {
 			for (let i = 1; i <= 100; i++) {
 				if (i % 3 === 0 && i % 5 !== 0) {
@@ -131,6 +122,7 @@
 				}
 			}
 		}
+		codeMonkey()
 	</script>
 
 </body>
