@@ -28,8 +28,8 @@
 
 
 		let counter = 1
-		for (let i = 1; i < stringArray.length; i++) {
-			if (stringArray[i - 1] === stringArray[i]) {
+		for (let i = 0; i < stringArray.length; i++) {
+			if (stringArray[i] === stringArray[i + 1]) {
 				counter++
 			} else {
 				console.log(counter + ' ' + stringArray[i])
@@ -37,12 +37,20 @@
 			}
 		}
 
-		let newC = 1
+		let charCounter = 1
+		let treasure = {}
 		let newA = stringArray.map((char, index) => {
-
-			console.log(stringArray[index])
+			if (char === stringArray[index + 1]) {
+				charCounter++
+				return char
+			} else {
+				console.log(`This char ${char} appears ${charCounter} times`)
+				treasure[charCounter] = char
+				charCounter = 1
+				return char
+			}
 		})
-
+		console.log(treasure)
 	</script>
 </body>
 
