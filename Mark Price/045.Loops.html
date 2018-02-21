@@ -120,12 +120,12 @@
 		// Loops 1 to 100 and checks for mutiple of 3 & 5, then calls appendNprint accordingly
 		function codeMonkey() {
 			for (let i = 1; i <= 100; i++) {
-				if (i % 3 === 0 && i % 5 !== 0) {
-					appendNprint(i, i + ' Code')
-				} else if (i % 5 === 0 && i % 3 !== 0) {
-					appendNprint(i, i + ' Monkey')
-				} else if (i % 3 === 0 && i % 5 === 0) {
+				if (i % 3 === 0 && i % 5 === 0) {
 					appendNprint(i, i + ' CodeMonkey')
+				} else if (i % 3 === 0) {
+					appendNprint(i, i + ' Code')
+				} else if (i % 5 === 0) {
+					appendNprint(i, i + ' Monkey')
 				} else {
 					appendNprint(i, i)
 				}
