@@ -111,9 +111,8 @@
 		// Populates  the arrays with a span with class button and relevant content, from the codeMonkey fn
 		function appendNprint(index, content) {
 			buttonArray[index] = document.createElement('span')
-			console.log(buttonArray[index])
 			contentArray[index] = document.createTextNode(content)
-			console.log(contentArray[content])
+			console.log(contentArray[index])
 			buttonArray[index].appendChild(contentArray[index])
 			monkeyZone.appendChild(buttonArray[index])
 			buttonArray[index].classList.add('button')
@@ -122,16 +121,12 @@
 		function codeMonkey() {
 			for (let i = 1; i <= 100; i++) {
 				if (i % 3 === 0 && i % 5 !== 0) {
-					console.log('Code')
 					appendNprint(i, i + ' Code')
 				} else if (i % 5 === 0 && i % 3 !== 0) {
-					console.log('Monkey')
 					appendNprint(i, i + ' Monkey')
 				} else if (i % 3 === 0 && i % 5 === 0) {
-					console.log('CodeMonkey')
 					appendNprint(i, i + ' CodeMonkey')
 				} else {
-					console.log(i)
 					appendNprint(i, i)
 				}
 			}
