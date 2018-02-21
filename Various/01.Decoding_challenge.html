@@ -26,6 +26,23 @@
 		let sortedArray = stringArray.sort()
 		console.log(sortedArray)
 
+
+		let counter = 1
+		for (let i = 1; i < stringArray.length; i++) {
+			if (stringArray[i - 1] === stringArray[i]) {
+				counter++
+			} else {
+				console.log(counter + ' ' + stringArray[i])
+				counter = 1
+			}
+		}
+
+		let newC = 1
+		let newA = stringArray.map((char, index) => {
+
+			console.log(stringArray[index])
+		})
+
 	</script>
 </body>
 
