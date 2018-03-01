@@ -34,7 +34,7 @@
 				</div>
 				<div class="field-body">
 					<div class="field">
-						<input class="input" type="number" id="input" placeholder="12388842" value="12388842">
+						<input class="input" type="number" id="input" placeholder="76588847688" value="76588847688">
 					</div>
 				</div>
 			</div>
@@ -46,10 +46,28 @@
 			<script>
 				const input = document.getElementById('input')
 				const message = document.getElementById('message')
-				input.addEventListener('keydown', isEnough)
-				input.addEventListener('keyup', isEnough)
+				// input.addEventListener('keydown', bigOne)
+				// input.addEventListener('keyup', bigOne)
+				const myValue = input.value
+				const myArray = myValue.split('')
 
-
+				function bigOne(array) {
+					for (let i = 0; i < myArray.length; i++) {
+						let pivot = i
+						let counter = 1
+						let chosen = array[pivot]
+						for (let j = pivot + 1; j < myArray.length; j++) {
+							if (array[pivot] === array[j]) {
+								counter++
+							}
+						}
+						if (counter > 1) {
+							console.log(chosen + ' gets repeated ' + counter + ' times')
+							counter = 1
+						}
+					}
+				}
+				bigOne(myArray)
 			</script>
 
 </body>

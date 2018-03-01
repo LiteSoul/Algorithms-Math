@@ -1,0 +1,4 @@
+so let's break it down...
+before we search for numbers of 2 or more digits, we should:
+
+-check if a number has already 
