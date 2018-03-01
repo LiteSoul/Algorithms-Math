@@ -64,13 +64,10 @@
 				students.addEventListener('keyup', isEnough)
 
 				function isEnough() {
-					// result = Number(chairs.value) + Number(students.value)
-					// document.getElementById('result').value = result
 					nChairs = Number(chairs.value)
 					nStudents = Number(students.value)
 					if (nChairs > 0 && nStudents > 0) {
 						if (nChairs >= nStudents) {
-							// chairs.value - students.value
 							message.innerHTML = `Great, there are enough chairs for all the students!`
 						} else {
 							missing = students.value - chairs.value
