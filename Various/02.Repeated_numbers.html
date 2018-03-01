@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Repeated Numbers</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+	<style>
+		.input {
+			width: 155px;
+			-moz-appearance: textfield;
+		}
+
+		.input::-webkit-outer-spin-button,
+		.input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="section">
+		<div class="container">
+			<h3 class="title is-3 is-spaced">Algorithm "Repeated Numbers"</h3>
+			<br>
+			<h5 class="subtitle is-5">Display the numbers that get repeated from the input</h5>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Enter any number</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" type="number" id="input" placeholder="12388842" value="12388842">
+					</div>
+				</div>
+			</div>
+
+			<div class="container is-large">
+				<p id="message"></p>
+			</div>
+
+			<script>
+				const input = document.getElementById('input')
+				const message = document.getElementById('message')
+				input.addEventListener('keydown', isEnough)
+				input.addEventListener('keyup', isEnough)
+
+
+			</script>
+
+</body>
+
+</html>
