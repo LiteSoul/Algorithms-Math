@@ -50,16 +50,18 @@
 				// input.addEventListener('keyup', bigOne)
 				const myValue = input.value
 				const myArray = myValue.split('')
-				const myObject = {}
-				let superstring = ''
+				let myObject = {}
+				let superString = ''
+				let element = ''
+				let element2 = ''
 
 				function bigOne(array) {
-					for (let i = 0; i < myArray.length; i++) {
+					// Iterate from pivot to the rest of numbers
+					for (let i = 0; i < array.length; i++) {
 						let pivot = i
 						let counter = 1
-						let chosen = array[pivot]
 						if (myObject[array[pivot]] === undefined) {
-							for (let j = pivot + 1; j < myArray.length; j++) {
+							for (let j = pivot + 1; j < array.length; j++) {
 								if (array[pivot] === array[j]) {
 									counter++
 									myObject[array[pivot]] = counter
@@ -67,18 +69,34 @@
 							}
 							counter = 1
 						}
-
 					}
+					// Print the results
 					console.log(myObject)
-					for (var key in myObject) {
+					for (let key in myObject) {
 						// Check if the property really exists
 						if (myObject.hasOwnProperty(key)) {
 							let value = myObject[key]
-							superstring = `The number ${key} gets repeated ${value} times`
-							console.log(superstring)
+							superString = `The number ${key} gets repeated ${value} times`
+							// message.innerHTML += superString
+							console.log(superString)
+						}
+					}
+					// Test with more digits------------------------
+					for (let k = 0; k < 3; k++) {
+						for (let m = 0; m < array.length; m++) {
+							const element = array[m];
+
+						}
+						console.log('k is ' + k)
+						element += array[k]
+						console.log('element is ' + element)
+						for (let l = 0; l < array.length; l++) {
+							element2 = array[l] + array[l + 1];
+							console.log(element2)
 						}
 					}
 				}
+				// Function call
 				bigOne(myArray)
 			</script>
 
