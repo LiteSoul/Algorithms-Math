@@ -34,7 +34,7 @@
 				</div>
 				<div class="field-body">
 					<div class="field">
-						<input class="input" type="number" id="input" placeholder="76588847688" value="76588847688">
+						<input class="input" type="number" id="input" placeholder="7658881476886" value="7658881476886">
 					</div>
 				</div>
 			</div>
@@ -50,20 +50,32 @@
 				// input.addEventListener('keyup', bigOne)
 				const myValue = input.value
 				const myArray = myValue.split('')
+				const myObject = {}
+				let superstring = ''
 
 				function bigOne(array) {
 					for (let i = 0; i < myArray.length; i++) {
 						let pivot = i
 						let counter = 1
 						let chosen = array[pivot]
-						for (let j = pivot + 1; j < myArray.length; j++) {
-							if (array[pivot] === array[j]) {
-								counter++
+						if (myObject[array[pivot]] === undefined) {
+							for (let j = pivot + 1; j < myArray.length; j++) {
+								if (array[pivot] === array[j]) {
+									counter++
+									myObject[array[pivot]] = counter
+								}
 							}
-						}
-						if (counter > 1) {
-							console.log(chosen + ' gets repeated ' + counter + ' times')
 							counter = 1
+						}
+
+					}
+					console.log(myObject)
+					for (var key in myObject) {
+						// Check if the property really exists
+						if (myObject.hasOwnProperty(key)) {
+							let value = myObject[key]
+							superstring = `The number ${key} gets repeated ${value} times`
+							console.log(superstring)
 						}
 					}
 				}
