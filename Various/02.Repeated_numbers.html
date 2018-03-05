@@ -2,11 +2,11 @@
 <html>
 
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Repeated Numbers</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" rel="stylesheet">
 	<style>
 		.input {
 			width: 155px;
@@ -34,7 +34,7 @@
 				</div>
 				<div class="field-body">
 					<div class="field">
-						<input class="input" type="number" id="input" placeholder="7658881476886" value="7658881476886">
+						<input class="input" id="input" type="number" placeholder="765888147688886" value="765888147688886">
 					</div>
 				</div>
 			</div>
@@ -93,7 +93,7 @@
 						let mainIterated = array[iterator + 1]
 						console.log('MAINPIVOT ' + mainPivot)
 						if (mainObject[mainPivot] === undefined) {
-							for (let jj = iterator + 1; jj < array.length; jj++) {
+							for (let jj = iterator + 1; jj <= array.length-1; jj++) {
 								mainIterated = array[jj]
 								console.log('MAINITERATED ' + mainIterated)
 								if (mainPivot === mainIterated) {
@@ -101,29 +101,34 @@
 									mainObject[mainPivot] = mainCounter
 								}
 							}
-							// mainCounter = 1
-						}
-						for (let jj = iterator + 1; jj < array.length; jj++) {
-							mainIterated = array[jj]
-							// console.log('MAINITERATED ' + mainIterated)
-							for (let ll = jj + 1; ll <= jj + 3; ll++) {
-								mainIterated += array[ll]
-								// console.log('MAINITERATED ' + mainIterated)
-							}
-						}
-						for (let kk = iterator + 1; kk <= iterator + 3; kk++) {
-							mainPivot += array[kk]
-							console.log('MAINPIVOT ' + mainPivot)
-							// mainIterated += array[kk + 1]
-							for (let m = kk + 1; m < array.length; m++) {
-								mainIterated += array[m]
-								console.log('MAINITERATED ' + mainIterated)
-								mainIterated = array[m]
-							}
 						}
 						mainCounter = 1
-
 					}
+
+
+function interaction(array,mainPivot,mainIterated){
+	if (mainPivot === mainIterated) {
+		mainCounter++
+		 mainObject[mainPivot]=mainCounter
+	}
+}
+for (let iterator = 0; iterator < array.length-1; iterator++) {
+	let mainPivot=array[iterator]+array[iterator+1]
+	console.log('MAINPIVOT ' + mainPivot)
+	let mainCounter = 1
+	console.log(mainCounter)
+	if (mainObject[mainPivot] === undefined) {
+		
+		for (let jj = iterator + 1; jj <= array.length-2; jj++) {
+			let mainIterated = array[jj]+array[jj+1]
+			console.log('MAINITERATED ' + mainIterated)
+			interaction(myArray,mainPivot,mainIterated)
+		}
+		// mainCounter = 1
+	}
+	
+}
+
 					// Print the results
 					console.log(mainObject)
 					for (let key in mainObject) {
@@ -140,6 +145,6 @@
 				bigOne(myArray)
 			</script>
 
-</body>
+</div></div></body>
 
 </html>
