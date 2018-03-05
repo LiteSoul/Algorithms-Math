@@ -92,9 +92,10 @@
 						let mainPivot = array[iterator]
 						let mainIterated = array[iterator + 1]
 						console.log('MAINPIVOT ' + mainPivot)
-						if (mainObject[array[mainPivot]] === undefined) {
+						if (mainObject[mainPivot] === undefined) {
 							for (let jj = iterator + 1; jj < array.length; jj++) {
 								mainIterated = array[jj]
+								console.log('MAINITERATED ' + mainIterated)
 								if (mainPivot === mainIterated) {
 									mainCounter++
 									mainObject[mainPivot] = mainCounter
@@ -104,15 +105,21 @@
 						}
 						for (let jj = iterator + 1; jj < array.length; jj++) {
 							mainIterated = array[jj]
-							console.log('MAINITERATED ' + mainIterated)
+							// console.log('MAINITERATED ' + mainIterated)
 							for (let ll = jj + 1; ll <= jj + 3; ll++) {
 								mainIterated += array[ll]
-								console.log('MAINITERATED ' + mainIterated)
+								// console.log('MAINITERATED ' + mainIterated)
 							}
 						}
 						for (let kk = iterator + 1; kk <= iterator + 3; kk++) {
 							mainPivot += array[kk]
 							console.log('MAINPIVOT ' + mainPivot)
+							// mainIterated += array[kk + 1]
+							for (let m = kk + 1; m < array.length; m++) {
+								mainIterated += array[m]
+								console.log('MAINITERATED ' + mainIterated)
+								mainIterated = array[m]
+							}
 						}
 						mainCounter = 1
 
