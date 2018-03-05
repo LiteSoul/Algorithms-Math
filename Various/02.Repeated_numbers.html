@@ -52,22 +52,23 @@
 				const myArray = myValue.split('')
 				let myObject = {}
 				let superString = ''
+				let mainObject = {}
+				let superString2 = ''
 				let element = ''
 				let element2 = ''
 				let element3 = ''
-				let counter2 = 1
+				let mainCounter = 1
 
 				function bigOne(array) {
 					// Iterate from pivot to the rest of numbers
 					for (let i = 0; i < array.length; i++) {
 						let pivot = i
 						let counter = 1
-						let arrayPivot = array[pivot]
-						if (myObject[arrayPivot] === undefined) {
+						if (myObject[array[pivot]] === undefined) {
 							for (let j = pivot + 1; j < array.length; j++) {
-								if (arrayPivot === array[j]) {
+								if (array[pivot] === array[j]) {
 									counter++
-									myObject[arrayPivot] = counter
+									myObject[array[pivot]] = counter
 								}
 							}
 							counter = 1
@@ -85,43 +86,47 @@
 						}
 					}
 					// Test with more digits------------------------
-					let p = 1
-					let l = 0
-					let k = l
-					let q = 1
-					element = array[l]
-					for (p = 1; p <= 3; p++) {
-						for (l = 0; l < array.length; l++) {
-							// element = l
-							// let k = l
-							// for (let k = l; k <= l + 2; k++) {
-							// console.log('k is ' + k)
-							// element = array[k]
-							q = l + 1
-							if (p === 1) {
-								element = array[l]
-								console.log('element is ' + element)
-								for (let n = 1; n < array.length; n++) {
-									let o = n
-									element2 += array[k + o]
-									console.log('element2 is ' + element2)
-									if (element === element2) {
-										counter2++
-										console.log(counter2)
-									}
-									element2 = ''
+					// Iterate from pivot to the rest of numbers
+					for (let iterator = 0; iterator < array.length; iterator++) {
+						let mainCounter = 1
+						let mainPivot = array[iterator]
+						let mainIterated = array[iterator + 1]
+						console.log('MAINPIVOT ' + mainPivot)
+						if (mainObject[array[mainPivot]] === undefined) {
+							for (let jj = iterator + 1; jj < array.length; jj++) {
+								mainIterated = array[jj]
+								if (mainPivot === mainIterated) {
+									mainCounter++
+									mainObject[mainPivot] = mainCounter
 								}
-								// Print numbers repeated 2 or more times
-								if (counter2 > 1) {
-									console.log(element + ' repeated ' + counter2)
-									counter2 = 1
-								}
-								// }
-								// element = ''
 							}
-
+							// mainCounter = 1
 						}
-						// element = array[l] + array[q]
+						for (let jj = iterator + 1; jj < array.length; jj++) {
+							mainIterated = array[jj]
+							console.log('MAINITERATED ' + mainIterated)
+							for (let ll = jj + 1; ll <= jj + 3; ll++) {
+								mainIterated += array[ll]
+								console.log('MAINITERATED ' + mainIterated)
+							}
+						}
+						for (let kk = iterator + 1; kk <= iterator + 3; kk++) {
+							mainPivot += array[kk]
+							console.log('MAINPIVOT ' + mainPivot)
+						}
+						mainCounter = 1
+
+					}
+					// Print the results
+					console.log(mainObject)
+					for (let key in mainObject) {
+						// Check if the property really exists
+						if (mainObject.hasOwnProperty(key)) {
+							let value = mainObject[key]
+							superString2 = `The number ${key} gets repeated ${value} times`
+							// message.innerHTML += superString
+							console.log(superString2)
+						}
 					}
 				}
 				// Function call
