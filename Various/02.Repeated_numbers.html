@@ -58,8 +58,10 @@
 				let element2 = ''
 				let element3 = ''
 				let mainCounter = 1
+				let mainPivot=''
+				let mainIterated=''
 
-				function bigOne(array) {
+				function bigOne(array,digits) {
 					// Iterate from pivot to the rest of numbers
 					for (let i = 0; i < array.length; i++) {
 						let pivot = i
@@ -122,22 +124,55 @@ for (let iterator = 0; iterator < array.length; iterator++) {
 	}
 }
 
-for (let iterator = 0; iterator < array.length; iterator++) {
-	let mainPivot=array[iterator]+array[iterator+1]+array[iterator+2]
-	console.log('MAINPIVOT ' + mainPivot)
-	let mainCounter = 1
-	if (mainObject[mainPivot] === undefined) {
-		for (let comparator = iterator + 1; comparator <= array.length; comparator++) {
-			let mainIterated = array[comparator]+array[comparator+1]+array[comparator+2]
-			console.log('MAINITERATED ' + mainIterated)
-			if (mainPivot === mainIterated) {
-		mainCounter++
-		console.log(mainCounter)
-		mainObject[mainPivot]=mainCounter
-	}
+// for (let iterator = 0; iterator < array.length; iterator++) {
+// 	let mainPivot=array[iterator]+array[iterator+1]+array[iterator+2]
+// 	console.log('MAINPIVOT ' + mainPivot)
+// 	let mainCounter = 1
+// 	if (mainObject[mainPivot] === undefined) {
+// 		for (let comparator = iterator + 1; comparator <= array.length; comparator++) {
+// 			let mainIterated = array[comparator]+array[comparator+1]+array[comparator+2]
+// 			console.log('MAINITERATED ' + mainIterated)
+// 			if (mainPivot === mainIterated) {
+// 		mainCounter++
+// 		console.log(mainCounter)
+// 		mainObject[mainPivot]=mainCounter
+// 	}
+// 		}
+// 	}
+// }
+let iterator=0
+let comparator = iterator + 1
+function interaction(array,digits){
+	for (iterator = 0; iterator < array.length; iterator++) {
+		mainPivot=array[iterator]
+		if(digits>1){
+			for (let i = 1; i < digits; i++) {
+				mainPivot+=array[iterator+i]
+			}
+		}
+		// mainPivot=array[iterator]+array[iterator+1]+array[iterator+2]
+		console.log('MAINPIVOT RECURSIVE ' + mainPivot)
+		let mainCounter = 1
+		if (mainObject[mainPivot] === undefined) {
+			for (comparator = iterator + 1; comparator <= array.length; comparator++) {
+				mainIterated=array[comparator]
+				if(digits>1){
+					for (let c = 1; c < digits; c++) {
+						mainIterated+=array[comparator+c]
+					}
+				}
+				// let mainIterated = array[comparator]+array[comparator+1]+array[comparator+2]
+				console.log('MAINITERATED RECURSIVE ' + mainIterated)
+				if (mainPivot === mainIterated) {
+					mainCounter++
+					console.log(mainCounter)
+					mainObject[mainPivot]=mainCounter
+				}
+			}
 		}
 	}
 }
+interaction(array,digits)
 
 					// Print the results
 					console.log(mainObject)
@@ -152,7 +187,18 @@ for (let iterator = 0; iterator < array.length; iterator++) {
 					}
 				}
 				// Function call
-				bigOne(myArray)
+				bigOne(myArray,3)
+				function numbery(digits){
+					let arrayer=[]
+					for (let i = 0; i<digits; i++) {
+						arrayer[i]=i+1
+					}
+					console.log(arrayer)
+					arrayer.forEach(element => {
+						console.log(element)
+					})
+				}
+				numbery(3)
 			</script>
 
 </div></div></body>
