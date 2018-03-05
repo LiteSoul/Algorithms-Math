@@ -62,11 +62,12 @@
 					for (let i = 0; i < array.length; i++) {
 						let pivot = i
 						let counter = 1
-						if (myObject[array[pivot]] === undefined) {
+						let arrayPivot = array[pivot]
+						if (myObject[arrayPivot] === undefined) {
 							for (let j = pivot + 1; j < array.length; j++) {
-								if (array[pivot] === array[j]) {
+								if (arrayPivot === array[j]) {
 									counter++
-									myObject[array[pivot]] = counter
+									myObject[arrayPivot] = counter
 								}
 							}
 							counter = 1
@@ -84,35 +85,44 @@
 						}
 					}
 					// Test with more digits------------------------
-					for (let l = 0; l < array.length; l++) {
-						// element = l
-						let k = l
-						// for (let k = l; k <= l + 2; k++) {
-						// console.log('k is ' + k)
-						element += array[k]
-						console.log('element is ' + element)
-
-						for (let n = 1; n < array.length; n++) {
-							let o = n
-							element2 += array[k + o]
-							console.log('element2 is ' + element2)
-							if (element === element2) {
-								counter2++
-								console.log(counter2)
+					let p = 1
+					let l = 0
+					let k = l
+					let q = 1
+					element = array[l]
+					for (p = 1; p <= 3; p++) {
+						for (l = 0; l < array.length; l++) {
+							// element = l
+							// let k = l
+							// for (let k = l; k <= l + 2; k++) {
+							// console.log('k is ' + k)
+							// element = array[k]
+							q = l + 1
+							if (p === 1) {
+								element = array[l]
+								console.log('element is ' + element)
+								for (let n = 1; n < array.length; n++) {
+									let o = n
+									element2 += array[k + o]
+									console.log('element2 is ' + element2)
+									if (element === element2) {
+										counter2++
+										console.log(counter2)
+									}
+									element2 = ''
+								}
+								// Print numbers repeated 2 or more times
+								if (counter2 > 1) {
+									console.log(element + ' repeated ' + counter2)
+									counter2 = 1
+								}
+								// }
+								// element = ''
 							}
-							element2 = ''
-						}
-						// Print numbers repeated 2 or more times
-						if (counter2 > 1) {
-							console.log(element + ' repeated ' + counter2)
-							counter2 = 1
-						}
 
-						// }
-						element = ''
-
+						}
+						// element = array[l] + array[q]
 					}
-
 				}
 				// Function call
 				bigOne(myArray)
