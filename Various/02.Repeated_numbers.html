@@ -93,8 +93,8 @@
 						let mainIterated = array[iterator + 1]
 						console.log('MAINPIVOT ' + mainPivot)
 						if (mainObject[mainPivot] === undefined) {
-							for (let jj = iterator + 1; jj <= array.length-1; jj++) {
-								mainIterated = array[jj]
+							for (let comparator = iterator + 1; comparator <= array.length; comparator++) {
+								mainIterated = array[comparator]
 								console.log('MAINITERATED ' + mainIterated)
 								if (mainPivot === mainIterated) {
 									mainCounter++
@@ -102,31 +102,41 @@
 								}
 							}
 						}
-						mainCounter = 1
 					}
 
-
-function interaction(array,mainPivot,mainIterated){
-	if (mainPivot === mainIterated) {
-		mainCounter++
-		 mainObject[mainPivot]=mainCounter
-	}
-}
-for (let iterator = 0; iterator < array.length-1; iterator++) {
+for (let iterator = 0; iterator < array.length; iterator++) {
 	let mainPivot=array[iterator]+array[iterator+1]
 	console.log('MAINPIVOT ' + mainPivot)
 	let mainCounter = 1
 	console.log(mainCounter)
 	if (mainObject[mainPivot] === undefined) {
-		
-		for (let jj = iterator + 1; jj <= array.length-2; jj++) {
-			let mainIterated = array[jj]+array[jj+1]
+		for (let comparator = iterator + 1; comparator <= array.length; comparator++) {
+			let mainIterated = array[comparator]+array[comparator+1]
 			console.log('MAINITERATED ' + mainIterated)
-			interaction(myArray,mainPivot,mainIterated)
-		}
-		// mainCounter = 1
+			if (mainPivot === mainIterated) {
+		mainCounter++
+		console.log(mainCounter)
+		mainObject[mainPivot]=mainCounter
 	}
-	
+		}
+	}
+}
+
+for (let iterator = 0; iterator < array.length; iterator++) {
+	let mainPivot=array[iterator]+array[iterator+1]+array[iterator+2]
+	console.log('MAINPIVOT ' + mainPivot)
+	let mainCounter = 1
+	if (mainObject[mainPivot] === undefined) {
+		for (let comparator = iterator + 1; comparator <= array.length; comparator++) {
+			let mainIterated = array[comparator]+array[comparator+1]+array[comparator+2]
+			console.log('MAINITERATED ' + mainIterated)
+			if (mainPivot === mainIterated) {
+		mainCounter++
+		console.log(mainCounter)
+		mainObject[mainPivot]=mainCounter
+	}
+		}
+	}
 }
 
 					// Print the results
