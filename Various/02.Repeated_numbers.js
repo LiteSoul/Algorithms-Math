@@ -68,6 +68,7 @@ function scanNdetect(input, digits) {
 // This function prints the results stored in the object
 function printResults(object) {
 	let superString = ''
+	//Clears the previously displayed results
 	message.innerHTML = ''
 	for (let key in object) {
 		// Check if the property really exists, avoids unindexed properties
