@@ -1,16 +1,20 @@
 const input = document.getElementById('input')
 const message = document.getElementById('message')
-// input.addEventListener('keydown', bigOne)
-// input.addEventListener('keyup', bigOne)
-const myValue = input.value
-const myArray = myValue.split('')
-let storedResults = {}
-let superString = ''
-let counter = 1
-let mainPivot = ''
-let mainIterated = ''
+const digits = document.getElementById('digits')
+const button = document.getElementById('button')
+button.addEventListener('click', fireItUp)
 
-function scanNdetect(array, digits) {
+//This function fires the search function
+function fireItUp() {
+	scanNdetect(input.value, digits.value)
+}
+//Main search function
+function scanNdetect(input, digits) {
+	//Transform the raw input into an array to work on it
+	const array = input.split('')
+	//Crate an object to store the search results
+	let storedResults = {}
+
 	let digitizer = []
 	for (let i = 0; i < digits; i++) {
 		digitizer[i] = i + 1
@@ -18,6 +22,8 @@ function scanNdetect(array, digits) {
 	console.log(digitizer)
 	digitizer.forEach(digit => {
 		console.log(digit)
+		let mainPivot = ''
+		let mainIterated = ''
 		let iterator = 0
 		let comparator = iterator + 1
 		// function interaction(array,digits){
@@ -30,7 +36,7 @@ function scanNdetect(array, digits) {
 			}
 			// mainPivot=array[iterator]+array[iterator+1]+array[iterator+2]
 			console.log('MAINPIVOT RECURSIVE ' + mainPivot)
-			counter = 1
+			let counter = 1
 			if (storedResults[mainPivot] === undefined) {
 				for (
 					comparator = iterator + 1;
@@ -53,18 +59,21 @@ function scanNdetect(array, digits) {
 				}
 			}
 		}
-		// }
-		// Print the results stored in the object
-		console.log(storedResults)
-		for (let key in storedResults) {
-			// Check if the property really exists
-			if (storedResults.hasOwnProperty(key)) {
-				let value = storedResults[key]
-				superString = `The number ${key} gets repeated ${value} times`
-				// message.innerHTML += superString
-				console.log(superString)
-			}
-		}
 	})
+	printResults(storedResults)
 }
-scanNdetect(myArray, 3)
+// This function prints the results stored in the object
+function printResults(object) {
+	let superString = ''
+	message.innerHTML = ''
+	console.log(object)
+	for (let key in object) {
+		// Check if the property really exists
+		if (object.hasOwnProperty(key)) {
+			let value = object[key]
+			superString = `The number <strong>${key}</strong> gets repeated <strong>${value} times</strong><br>`
+			message.innerHTML += superString
+			console.log(superString)
+		}
+	}
+}
