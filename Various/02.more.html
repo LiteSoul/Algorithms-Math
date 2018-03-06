@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Repeated Numbers</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" rel="stylesheet">
+	<style>
+		.input {
+			width: 155px;
+			-moz-appearance: textfield;
+		}
+
+		.input::-webkit-outer-spin-button,
+		.input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="section">
+		<div class="container">
+			<h3 class="title is-3 is-spaced">Algorithm "Repeated Numbers"</h3>
+			<br>
+			<h5 class="subtitle is-5">Display the numbers that get repeated from the input</h5>
+
+			<div class="field is-horizontal">
+				<div class="field-label is-normal">
+					<label class="label">Enter any number</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<input class="input" id="input" type="number" placeholder="765888147688886" value="765888147688886">
+					</div>
+				</div>
+			</div>
+
+			<div class="container is-large">
+				<p id="message"></p>
+			</div>
+
+			<script>
+				const input = document.getElementById('input')
+				const message = document.getElementById('message')
+				// input.addEventListener('keydown', bigOne)
+				// input.addEventListener('keyup', bigOne)
+				const myValue = input.value
+				const myArray = myValue.split('')
+				let myObject = {}
+				let superString = ''
+				let mainObject = {}
+				let superString2 = ''
+				let element = ''
+				let element2 = ''
+				let element3 = ''
+				let mainCounter = 1
+				let mainPivot=''
+				let mainIterated=''
+				
+				function numbery(array,digits){
+					let arrayer=[]
+					for (let i = 0; i<digits; i++) {
+						arrayer[i]=i+1
+					}
+					console.log(arrayer)
+					arrayer.forEach(element => {
+						console.log(element)
+						let iterator=0
+						let comparator = iterator + 1
+						// function interaction(array,digits){
+							for (iterator = 0; iterator < array.length; iterator++) {
+								mainPivot=array[iterator]
+								if(digits>1){
+									for (let i = 1; i < element; i++) {
+										mainPivot+=array[iterator+i]
+									}
+								}
+								// mainPivot=array[iterator]+array[iterator+1]+array[iterator+2]
+								console.log('MAINPIVOT RECURSIVE ' + mainPivot)
+								let mainCounter = 1
+								if (mainObject[mainPivot] === undefined) {
+									for (comparator = iterator + 1; comparator <= array.length; comparator++) {
+										mainIterated=array[comparator]
+										if(digits>1){
+											for (let c = 1; c < element; c++) {
+												mainIterated+=array[comparator+c]
+											}
+										}
+										// let mainIterated = array[comparator]+array[comparator+1]+array[comparator+2]
+										console.log('MAINITERATED RECURSIVE ' + mainIterated)
+										if (mainPivot === mainIterated) {
+											mainCounter++
+											console.log(mainCounter)
+											mainObject[mainPivot]=mainCounter
+										}
+									}
+								}
+							}
+						// }
+											// Print the results
+					console.log(mainObject)
+					for (let key in mainObject) {
+						// Check if the property really exists
+						if (mainObject.hasOwnProperty(key)) {
+							let value = mainObject[key]
+							superString2 = `The number ${key} gets repeated ${value} times`
+							// message.innerHTML += superString
+							console.log(superString2)
+						}
+					}
+				
+					})
+				}
+				numbery(myArray,3)
+			</script>
+
+</div></div></body>
+
+</html>
