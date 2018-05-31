@@ -45,9 +45,7 @@ function scanNdetect(input, digits) {
 			//It hasn't been stored previously
 			if (storedResults[mainPivot] === undefined) {
 				for (
-					comparator = iterator + 1;
-					comparator <= array.length;
-					comparator++
+					comparator = iterator + 1; comparator <= array.length; comparator++
 				) {
 					mainIterated = array[comparator]
 					if (digits > 1) {
@@ -81,15 +79,26 @@ function printResults(object) {
 	}
 }
 
-
 let input4 = '765888147688886'
-let arre4 = input4.split('')
+let arre4 = input.value.split('')
 let array4 = []
-arre4.forEach((each, index) => {
-	let sliced = arre4.slice(index, index + 1)
-	let joined = sliced.join('')
-	array4.push(joined)
-})
+
+function joinedArrayPerDigit(array, digit) {
+	arre4.forEach((each, index) => {
+		let sliced = array.slice(index, index + digit)
+		let joined = sliced.join('')
+		array4.push(joined)
+	})
+}
+
+//Call the function as per the digit chosen
+function forEachDigit(digit) {
+	for (let index = 1; index <= digit; index++) {
+		joinedArrayPerDigit(arre4, index)
+	}
+}
+
+forEachDigit(digits.value)
 console.log(array4)
 
 let iter4 = []
@@ -98,7 +107,8 @@ array4.forEach(each => {
 	let filteredArray = array4.filter(element => {
 		return element == each
 	})
-	obj4[each] = filteredArray.length
+	if (filteredArray.length > 1) obj4[each] = filteredArray.length
 })
 
 console.log(obj4)
+printResults(obj4)
