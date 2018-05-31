@@ -80,3 +80,25 @@ function printResults(object) {
 		}
 	}
 }
+
+
+let input4 = '765888147688886'
+let arre4 = input4.split('')
+let array4 = []
+arre4.forEach((each, index) => {
+	let sliced = arre4.slice(index, index + 1)
+	let joined = sliced.join('')
+	array4.push(joined)
+})
+console.log(array4)
+
+let iter4 = []
+let obj4 = {}
+array4.forEach(each => {
+	let filteredArray = array4.filter(element => {
+		return element == each
+	})
+	obj4[each] = filteredArray.length
+})
+
+console.log(obj4)
